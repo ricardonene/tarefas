@@ -17,6 +17,15 @@ export default class Tarefas extends Component {
                 console.log(response.data)
                 this.setState({ listaTarefas: response.data });
             })
+            .catch(resposta => {
+                //se deu errado
+                alert('deu errado')
+                this.setState({listaTarefas : [
+                    {id: 1, descricao: 'teste', concluida: false}
+                ]})
+                console.log(resposta)
+            })
+
     }
 
     render() { 
@@ -30,7 +39,7 @@ export default class Tarefas extends Component {
                                 <small>1 pendentes 5 concluídas</small>
                                 <ul className="todo-list m-t small-list ui-sortable">
                                     {this.state.listaTarefas.map( tarefa => 
-                                        <li>
+                                        <li key={tarefa.id}>
                                             <a href="" className="check-link"><i className={`fa ${tarefa.concluida ? 'fa-check-square-o' : 'fa-square-o' }`}></i> </a>
                                             <span className={`m-l-xs ${tarefa.concluida ? 'todo-completed' : '' }`}> {tarefa.descricao} </span>
                                         </li>

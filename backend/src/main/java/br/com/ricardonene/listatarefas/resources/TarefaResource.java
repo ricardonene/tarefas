@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.ricardonene.listatarefas.Services.TarefaService;
 import br.com.ricardonene.listatarefas.domain.Tarefa;
+import br.com.ricardonene.listatarefas.services.TarefaService;
 
 @RestController
 @RequestMapping(value = "/tarefas")
@@ -22,6 +23,7 @@ public class TarefaResource {
 	@Autowired
 	private TarefaService service;
 	
+	@CrossOrigin
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Tarefa>> findAll() {
 		List<Tarefa> lista =service.findAll(); 

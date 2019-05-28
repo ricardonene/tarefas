@@ -1,4 +1,4 @@
-package br.com.ricardonene.listatarefas.Services;
+package br.com.ricardonene.listatarefas.services;
 
 import java.util.List;
 import java.util.Optional;
