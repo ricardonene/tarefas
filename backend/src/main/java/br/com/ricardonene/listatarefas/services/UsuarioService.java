@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.ricardonene.listatarefas.domain.Usuario;
@@ -12,6 +13,9 @@ import br.com.ricardonene.listatarefas.repositories.UsuarioRepository;
 @Service
 public class UsuarioService {
 
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
 	@Autowired
 	private UsuarioRepository repo;
 
@@ -26,6 +30,7 @@ public class UsuarioService {
 
 	public Usuario insert(Usuario obj) {
 		obj.setId(null);
+		obj.setSenha(passwordEncoder.encode(obj.getSenha()));
 		return repo.save(obj);
 	}
 

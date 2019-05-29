@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import br.com.ricardonene.listatarefas.domain.Tarefa;
+import br.com.ricardonene.listatarefas.domain.Usuario;
 import br.com.ricardonene.listatarefas.repositories.TarefaRepository;
+import br.com.ricardonene.listatarefas.repositories.UsuarioRepository;
 
 @SpringBootApplication
 public class ListaTarefasApplication implements CommandLineRunner {
@@ -16,9 +19,15 @@ public class ListaTarefasApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(ListaTarefasApplication.class, args);
 	}
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	@Autowired
 	private TarefaRepository tarefaRepository;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -28,6 +37,9 @@ public class ListaTarefasApplication implements CommandLineRunner {
 		Tarefa t3 = new Tarefa(3, "Comprar Café", false);
 		Tarefa t4 = new Tarefa(4, "Comprar CD", false);
 		tarefaRepository.saveAll(Arrays.asList(t1, t2, t3, t4));
+		
+		Usuario u1 = new Usuario(null, "Ricardo", "ricardonene@gmail.com", passwordEncoder.encode("12"));
+		usuarioRepository.save(u1);
 	}
 
 }
