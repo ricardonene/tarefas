@@ -35,7 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		//Se estiver em ambiente de Teste permite abrir o H2Console, habilitando html frame
-		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
+		if (
+				Arrays.asList(env.getActiveProfiles()).contains("test")) {
             http.headers().frameOptions().disable();
         }
 		
