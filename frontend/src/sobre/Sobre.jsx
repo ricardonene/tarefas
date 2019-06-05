@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 
 export default class Sobre extends Component {
-    constructor(props) {
-        super(props);
-    }
+    
     render() { 
         return ( 
-            <div class="wrapper wrapper-content animated fadeInRight">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center m-t-lg">
+            <div className="wrapper wrapper-content animated fadeInRight">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="text-center m-t-lg">
                             <h1>
                                 Sobre
                             </h1>

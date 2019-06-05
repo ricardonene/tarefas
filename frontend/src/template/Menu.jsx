@@ -6,10 +6,13 @@ export default props => {
             <div className="sidebar-collapse">
                 <ul className="nav metismenu" id="side-menu">
                     <li className="active">
-                        <a href="#/tarefas"><i className="fa fa-check"></i> <span className="nav-label">Tarefas</span></a>
+                        <a href="/tarefas"><i className="fa fa-check"></i> <span className="nav-label">Tarefas</span></a>
                     </li>
                     <li>
-                        <a href="#/sobre"><i className="fa fa-address-card"></i> <span className="nav-label">Sobre</span> </a>
+                        <a href="/sobre"><i className="fa fa-address-card"></i> <span className="nav-label">Sobre</span> </a>
+                    </li>
+                    <li>
+                        <a href="/logout"><i className="fa fa-sign-out"></i> <span className="nav-label">Sair</span> </a>
                     </li>
                 </ul>
             </div>

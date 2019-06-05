@@ -1,8 +1,9 @@
 package br.com.ricardonene.listatarefas.domain.enums;
 
 public enum Perfil {
-	USUARIO(1, "ROLE_USUARIO"), 
-	ADMIN(2, "ROLE_ADMIN");
+	USUARIO(1, "ROLE_USUARIO"),
+	ADMIN(2, "ROLE_ADMIN"),
+	PROFESSOR(3, "ROLE_PROFESSOR");
 
 	private int codigo;
 	private String descricao;
